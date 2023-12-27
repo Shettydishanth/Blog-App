@@ -8,7 +8,6 @@ dotenv.config();
 
 const app = express()
 
-// 11.20
 
 app.use(cors())
 app.use(express.json())
