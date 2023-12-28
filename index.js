@@ -15,7 +15,7 @@ app.use(morgan('dev'))
 
 app.get('/',(req,res)=>{
     res.status(200).send({
-        "message":"Node server"
+        "message":"Node Server"
     })
 })
 
