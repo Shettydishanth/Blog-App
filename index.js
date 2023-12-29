@@ -22,5 +22,5 @@ app.get('/',(req,res)=>{
 const PORT =process.env.PORT || 3000
 
 app.listen(PORT,()=>{
-    console.log(`server  is Running on ${DEV_MODE} port no ${PORT}`)
+    console.log(`Server  is Running on ${DEV_MODE} port no ${PORT}`)
 })
