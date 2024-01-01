@@ -1,26 +1,29 @@
-const express = require('express')
-const cors = require('cors')
-const morgan = require('morgan')
-const colors = require('colors')
-const dotenv = require('dotenv')
+const express = require("express");
+const cors = require("cors");
+// const morgan = require("morgan");
+// const colors = require("colors");
+const dotenv = require("dotenv");
+const connectDB = require("./config/db");
 
 dotenv.config();
 
-const app = express()
 
+connectDB();
 
-app.use(cors())
-app.use(express.json())
-app.use(morgan('dev'))
+const app = express();
 
-app.get('/',(req,res)=>{
-    res.status(200).send({
-        "message":"Node Server"
-    })
-})
+app.use(cors());
+app.use(express.json());
+app.use(morgan("dev"));
 
-const PORT =process.env.PORT || 3000
+app.get("/", (req, res) => {
+  res.status(200).send({
+    message: "Node Server",
+  });
+});
 
-app.listen(PORT,()=>{
-    console.log(`Server  running on  ${process.env.DEV_MODE} port no ${PORT}`)
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server  running on  ${process.env.DEV_MODE} port no ${PORT}`);
+});
