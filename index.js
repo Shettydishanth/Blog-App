@@ -3,7 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 // const colors = require("colors");
 const dotenv = require("dotenv");
-const connectDB = require("./config/db");
+const {connectDB} = require("./config/db");
 
 dotenv.config();
 
@@ -32,3 +32,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server  running on  ${process.env.DEV_MODE} port no ${PORT}`);
 });
+//http://localhost:3000/api/v1/user/all-users
