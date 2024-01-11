@@ -8,6 +8,7 @@ exports.registerController =async(req,res) => {
             message:'please fill all fields'
         })
        }
+
 const exisitingUser = await userModel.findOne({email})
 if(exisitingUser){
     return res.status(401).send({
@@ -16,29 +17,32 @@ if(exisitingUser){
     })
 }
 
-
 const user = new userModel({username,email,password })
 await user.save()
 return res.status(201).send({
     sucess:true,
     message:'New User Created',
     user ,
-
 })
-
      }
      catch(error){
         console.log(error)
         return res.status(500).send({
-            message:'Error in register callback',
+            message:'Error in register call back',
             sucess:false,
             error
         })
      }
 };
+ 
+//to get all users 
+exports.getAllUsers = async (req,res) => {
+    try{
 
-
-exports.getAllUsers = () => {};
+    }catch(error){
+        
+    }
+};
 
 
 
