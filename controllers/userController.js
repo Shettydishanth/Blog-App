@@ -38,8 +38,21 @@ return res.status(201).send({
 //to get all users 
 exports.getAllUsers = async (req,res) => {
     try{
+        const users = await userModel.find({});
+        return res.status(200).send({
+            userCount:users.length,
+            success: true,
+            message:"all users data",
+            users,
+        });
 
     }catch(error){
+        console.log(error)
+        return res.status(500).send({
+            sucess:false,
+            message:'error in get all users',
+            error
+        })
         
     }
 };
