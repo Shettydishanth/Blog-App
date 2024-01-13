@@ -25,7 +25,7 @@ app.use(morgan("dev"));
 // });
 app.use('/api/v1/user',userRoutes);
 app.get("/",(req,res)=>{
-  res.json({msg:"Hello fro Dishanth"})
+  res.json({msg:"Hello from Dishanth"})
 })
 const PORT = process.env.PORT || 3000;
 
@@ -33,3 +33,4 @@ app.listen(PORT, () => {
   console.log(`Server  running on  ${process.env.DEV_MODE} port no ${PORT}`);
 });
 //http://localhost:3000/api/v1/user/all-users
+//13
