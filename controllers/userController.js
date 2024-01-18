@@ -1,4 +1,5 @@
 const userModel = require('../models/userModel')
+const bcrypt = require('bcrypt')
 exports.registerController =async(req,res) => {
      try{
        const {username,email,password} =req.body
@@ -16,8 +17,11 @@ if(exisitingUser){
         message:'user already exists'
     })
 }
+//encypted password broo
+const hashedPassword = await bcrypt.hash(password,10)
 
-const user = new userModel({username,email,password })
+//to save new userr
+const user = new userModel({username,email,password:hashedPassword });
 await user.save()
 return res.status(201).send({
     sucess:true,
