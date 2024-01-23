@@ -1,3 +1,4 @@
+const { response } = require('express');
 const userModel = require('../models/userModel')
 const bcrypt = require('bcrypt')
 exports.registerController =async(req,res) => {
@@ -63,4 +64,44 @@ exports.getAllUsers = async (req,res) => {
 
 
 
-exports.loginController = () => {};
+exports.loginController = async (req,res) => {
+    try{
+        const {email,password} = req.body
+        //validation
+        if(!email || !password){
+            return res.status(401).send({
+                sucess:false,
+                message:'Please provide email or password'
+            })
+        }
+        const user = await userModel.findOne({email})
+        if(!user){
+            return res.status(200).send({
+                sucess:false,
+                message:'email is not registered'
+            }) 
+        }
+        //password
+        const isMatch = await bcrypt.compare(password,user.password)
+        if(!isMatch){
+            return response.status(401).send({
+                sucess:false,
+                message:'Invalid username or password'
+            })
+
+        }
+        return res.status(200).send({
+            sucess:true,
+            message:'login sucessfully',
+            user
+        })
+
+    }catch (error){
+        console.log(error)
+        return res.status(500).send({
+            sucess:false,
+            message:'Error in Login Callback',
+            error
+        })
+    }
+};
