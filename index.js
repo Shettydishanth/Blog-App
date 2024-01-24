@@ -25,7 +25,7 @@ app.use(morgan("dev"));
 // });
 app.use('/api/v1/user',userRoutes);
 app.get("/",(req,res)=>{
-  res.json({msg:"Hello from  Dishanth"})
+  res.json({msg:"Hello from me  Dishanth"})
 })
 const PORT = process.env.PORT || 3000;
 
