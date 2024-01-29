@@ -9,6 +9,7 @@ dotenv.config();
 
 
 const userRoutes = require('./routes/userRoutes.js')
+const blogRoutes = require('./routes/blogRoutes.js')
 
 connectDB();
 
@@ -23,10 +24,14 @@ app.use(morgan("dev"));
 //     message: "Node Server",
 //   });
 // });
-app.use('/api/v1/user',userRoutes);
-app.get("/",(req,res)=>{
-  res.json({msg:"Hello from me  Dishanth"})
-})
+app.use("/api/v1/user",userRoutes);
+app.use("/api/v1/blog", blogRoutes);
+
+
+
+// app.get("/",(req,res)=>{
+//   res.json({msg:"Hello from me  Dishanth"})
+// })
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
