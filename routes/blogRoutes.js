@@ -14,7 +14,7 @@ router.post('/create-blog',createBlogController)
 router.put('/update-blog/:id',updateBlogController)
 
 //gett
-router.get('get-blog/:id',getBlogByIdController)
+router.get('/get-blog/:id',getBlogByIdController)
 
 //delete
 router.delete('/delete-blog/:id', deleteBlogController)
