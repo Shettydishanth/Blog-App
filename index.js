@@ -32,7 +32,7 @@ app.use("/api/v1/blog", blogRoutes);
 // app.get("/",(req,res)=>{
 //   res.json({msg:"Hello from me  Dishanth"})
 // })
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
   console.log(`Server  running on  ${process.env.DEV_MODE} port no ${PORT}`);
